@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+{% block content %}
+<section class="hero">
+<span class="pill" style="background:#ffffff22;color:#fff">✨ فروشگاه مدرن</span>
+<h1>خریدی ساده، سریع و مرتب.</h1>
+<p>محصولاتت را انتخاب کن، سبد خریدت را بساز و فاکتور حرفه‌ای دریافت کن.</p>
+</section>
+<section class="section">
+<div class="section-head"><div><h2>🛍️ محصولات</h2><p>محصول موردنظر را پیدا و به سبد اضافه کن.</p></div>
+<div style="width:310px"><input id="productSearch" oninput="filterProducts()" placeholder="🔎 جستجوی محصول..."></div></div>
+<div class="product-grid">
+{% for p in products %}
+<article class="card product" data-product>
+<div class="product-art">🛍️</div><h3>{{ p['name'] }}</h3>
+<div class="price">{{ "{:,}".format(p['price']) }} تومان</div>
+<div class="muted">موجودی: {{ "{:,}".format(p['stock']) }} عدد</div>
+<div style="margin-top:16px"><a class="btn" href="/add-to-cart/{{ p['id'] }}">🛒 افزودن به سبد</a></div>
+</article>
+{% endfor %}
+</div>
+</section>
+{% endblock %}

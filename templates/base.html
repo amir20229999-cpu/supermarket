@@ -1,1 +1,19 @@
-
+<!doctype html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>{{ title|default('سوپرمارکت') }}</title>
+<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+<header class="topbar"><div class="topbar-in">
+<a class="logo" href="/"><span class="logo-mark">🛒</span>سوپرمارکت</a>
+<nav class="nav">
+<a href="/" class="active">🏠 فروشگاه</a><a href="/cart">🛒 سبد خرید</a>
+<a href="/my-orders">📦 خریدهای من</a><a href="/account">👤 حساب من</a><a href="/admin">⚙️ مدیریت</a>
+</nav></div></header>
+<main class="container">{% block content %}{% endblock %}</main>
+<footer class="muted" style="text-align:center;padding:30px">سوپرمارکت آنلاین • فاکتور و مدیریت سفارش</footer>
+<script src="{{ url_for('static', filename='app.js') }}"></script>
+</body></html>
